@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 /*
  *测试正则表达式
  */
-public class TestRegularExpression {
+public class TestRegularExpression300 {
 	public static void main(String[] args) {
 		if (args.length < 2) {
 			System.out.println("Usage:\njava TestRegularExpression "

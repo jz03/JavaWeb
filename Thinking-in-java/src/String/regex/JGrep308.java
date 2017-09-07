@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 import String.util.TextFile;
 
-public class JGrep {
+public class JGrep308 {
 
 	public static void main(String[] args) {
 		if(args.length < 2){

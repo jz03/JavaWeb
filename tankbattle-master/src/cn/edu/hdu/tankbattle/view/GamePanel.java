@@ -141,26 +141,26 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 				control.setRight(false);
 			}
 
-			if ((e.getKeyCode() == KeyEvent.VK_UP) && myTank.isLive()) {
+			if ((e.getKeyCode() == KeyEvent.VK_W) && myTank.isLive()) {
 				myTank.setDirect(Tank.NORTH);
 				control.setUp(true);
 				control.setDown(false);
 				control.setLeft(false);
 				control.setRight(false);
-			} else if ((e.getKeyCode() == KeyEvent.VK_DOWN) && myTank.isLive()) {
+			} else if ((e.getKeyCode() == KeyEvent.VK_S) && myTank.isLive()) {
 				myTank.setDirect(Tank.SOUTH);
 				control.setUp(false);
 				control.setDown(true);
 				control.setLeft(false);
 				control.setRight(false);
-			} else if ((e.getKeyCode() == KeyEvent.VK_LEFT) && myTank.isLive()
+			} else if ((e.getKeyCode() == KeyEvent.VK_A) && myTank.isLive()
 					&& myTank.getY() <= 580) {
 				myTank.setDirect(Tank.WEST);
 				control.setUp(false);
 				control.setDown(false);
 				control.setLeft(true);
 				control.setRight(false);
-			} else if ((e.getKeyCode() == KeyEvent.VK_RIGHT) && myTank.isLive()
+			} else if ((e.getKeyCode() == KeyEvent.VK_D) && myTank.isLive()
 					&& myTank.getY() <= 580) {
 				myTank.setDirect(Tank.EAST);
 				control.setUp(false);
@@ -168,7 +168,7 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 				control.setLeft(false);
 				control.setRight(true);
 			}
-			if (e.getKeyCode() == KeyEvent.VK_X && myTank.isLive()
+			if (e.getKeyCode() == KeyEvent.VK_K && myTank.isLive()
 					&& myTank.getY() <= 580) {
 				if (myTank.getBullets().size() <= 1
 						&& this.control.getMyBulletNum() > 0) { // 最多颗子弹
@@ -185,13 +185,13 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_UP) {
+		if (e.getKeyCode() == KeyEvent.VK_W) {
 			control.setUp(false);
-		} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+		} else if (e.getKeyCode() == KeyEvent.VK_S) {
 			control.setDown(false);
-		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+		} else if (e.getKeyCode() == KeyEvent.VK_A) {
 			control.setLeft(false);
-		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+		} else if (e.getKeyCode() == KeyEvent.VK_D) {
 			control.setRight(false);
 		}
 	}

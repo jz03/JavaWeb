@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
-<mapper namespace="cn.smj.dao.userMapper"> 
-        <select id="getUser"  resultType="cn.smj.model.User"> 
-                select * from user;
-        </select> 
-        
-        <insert id="insertUser"  parameterType="cn.smj.model.User"> 
-                insert into user (name,password) values (#{username},#{password});
-        </insert>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.smj.dao.userMapper">
+	<select id="getUser" resultType="cn.smj.model.User">
+		select * from user;
+	</select>
+
+	<insert id="insertUser" parameterType="cn.smj.model.User">
+		insert into user (username,password) values (#{username},#{password});
+	</insert>
 </mapper>

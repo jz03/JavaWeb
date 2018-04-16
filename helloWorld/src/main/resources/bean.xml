@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+	<!-- 基于注解的依赖注入 -->
+	<context:annotation-config/>
+	<!-- 基于注解的面向切面编程 -->
+	<aop:aspectj-autoproxy/>
+<!-- 	<bean id="textEditor" class="cn.jz.helloWorld.bean.TextEditor"></bean>
+	<bean id="spellChecker" class="cn.jz.helloWorld.bean.SpellChecker"></bean> -->
+
+	<bean id="helloWorld" class="cn.jz.helloWorld.bean.Message">
+		<property name="message" value="Hello World!" />
+	</bean>
+
+	<!-- 事件 -->
+	<bean id="cStartEventHandler" class="cn.jz.helloWorld.configure.CStartEventHandler" />
+	<bean id="cStopEventHandler" class="cn.jz.helloWorld.configure.CStopEventHandler" />
+	<!-- 自定义事件 -->
+	<bean id="customEventHandler" class="cn.jz.helloWorld.bean.CustomEventHandler"></bean>
+	<bean id="customEventPublisher" class="cn.jz.helloWorld.bean.CustomEventPublisher"></bean>
+
+	<!-- 面向切面编程 -->
+	<!-- 	
+	<aop:config>
+		<aop:aspect id="log" ref="logging">
+			<aop:pointcut id="selectAll" expression="execution(* cn.jz.helloWorld.bean.*.*(..))" />
+			<aop:before pointcut-ref="selectAll" method="beforeAdvice" />
+			<aop:after pointcut-ref="selectAll" method="afterAdvice" />
+			<aop:after-returning pointcut-ref="selectAll" returning="retVal" method="afterReturningAdvice" />
+			<aop:after-throwing pointcut-ref="selectAll" throwing="ex" method="AfterThrowingAdvice" />
+		</aop:aspect>
+	</aop:config>
+	 -->
+	<bean id="student" class="cn.jz.helloWorld.bean.Student">
+		<property name="name" value="冀州" />
+		<property name="age" value="26" />
+	</bean>
+	<bean id="logging" class="cn.jz.helloWorld.bean.Logging"/>
+	
+</beans>

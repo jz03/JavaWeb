@@ -3,17 +3,14 @@ package cn.jz.helloWorld;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.jz.helloWorld.bean.Message;
 import cn.jz.helloWorld.bean.Student;
-import cn.jz.helloWorld.dao.StudentJDBCTemplate;
+import cn.jz.helloWorld.dao.StudentDAO;
 
 /**
  * 程序入口
- * classpath:
  * @author 冀州
  * @date 2018年4月13日
  */
@@ -22,7 +19,7 @@ public class App {
 	public static void main(String[] args) {
 //		PropertyConfigurator.configure( "F:/project/helloWorld/src/main/resources/log4j.properties" );
 		ApplicationContext  context = new ClassPathXmlApplicationContext("bean.xml");
-		StudentJDBCTemplate cep = (StudentJDBCTemplate)context.getBean("studentJDBCTemplate");
+		StudentDAO cep = (StudentDAO)context.getBean("studentDAO");
 		System.out.println("------Records Creation--------");
 		cep.create("Zara", 11);
 		cep.create("Nuha", 2);

@@ -23,7 +23,7 @@
 	<bean id="spellChecker" class="cn.jz.helloWorld.bean.SpellChecker"></bean> -->
 
 	<!-- Definition for studentJDBCTemplate bean -->
-	<bean id="studentJDBCTemplate" class="cn.jz.helloWorld.dao.StudentJDBCTemplate">
+	<bean id="studentDAO" class="cn.jz.helloWorld.dao.StudentDAO">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
    

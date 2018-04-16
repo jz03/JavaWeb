@@ -7,8 +7,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import cn.jz.helloWorld.bean.Student;
+import cn.jz.helloWorld.bean.StudentMarks;
 import cn.jz.helloWorld.dao.StudentDAO;
 import cn.jz.helloWorld.dao.StudentStoredDAO;
+import cn.jz.helloWorld.dao.StudentTransactionDAO;
+import cn.jz.helloWorld.mapping.StudentMapping;
+import cn.jz.helloWorld.mapping.StudentMarksMapping;
 
 /**
  * 程序入口
@@ -20,22 +24,19 @@ public class App {
 	public static void main(String[] args) {
 //		PropertyConfigurator.configure( "F:/project/helloWorld/src/main/resources/log4j.properties" );
 		ApplicationContext  context = new ClassPathXmlApplicationContext("bean.xml");
-		StudentStoredDAO cep = (StudentStoredDAO)context.getBean("studentStoredDAO");
-		System.out.println("------Records Creation--------");
-		cep.create("Zara", 11);
-		cep.create("Nuha", 2);
-		cep.create("Ayan", 15);
-		System.out.println("------Listing Multiple Records--------");
-		List<Student> students = cep.listStudents();
-		for (Student record : students) {
+		StudentTransactionDAO cep = (StudentTransactionDAO)context.getBean("studentTransactionDAO");
+		System.out.println("------Records creation--------");
+		cep.create("Zara", 11, 99, 2010);
+		cep.create("Nuha", 20, 97, 2010);
+		cep.create("Ayan", 25, 100, 2011);
+		System.out.println("------Listing all the records--------");
+		List<StudentMarks> studentMarks = cep.listStudents();
+		for (StudentMarks record : studentMarks) {
 			System.out.print("ID : " + record.getId());
 			System.out.print(", Name : " + record.getName());
+			System.out.print(", Marks : " + record.getMarks());
+			System.out.print(", Year : " + record.getYear());
 			System.out.println(", Age : " + record.getAge());
 		}
-		System.out.println("----Listing Record with ID = 2 -----");
-		Student student = cep.getStudent(2);
-		System.out.print("ID : " + student.getId());
-		System.out.print(", Name : " + student.getName());
-		System.out.println(", Age : " + student.getAge());
 	}
 }

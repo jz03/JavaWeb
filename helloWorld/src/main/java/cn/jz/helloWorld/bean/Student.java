@@ -20,7 +20,6 @@ public class Student {
 	}
 
 	public String getName() {
-		System.out.println("名字：" + name);
 		return name;
 	}
 
@@ -29,7 +28,6 @@ public class Student {
 	}
 
 	public Integer getAge() {
-		System.out.println("年龄：" + age);
 		return age;
 	}
 
@@ -38,7 +36,6 @@ public class Student {
 	}
 
 	public void printThrowException() {
-		System.out.println("Exception raised");
 		throw new IllegalArgumentException();
 	}
 }

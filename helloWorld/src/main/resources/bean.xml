@@ -26,8 +26,12 @@
 	<bean id="studentDAO" class="cn.jz.helloWorld.dao.StudentDAO">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-   
-   
+
+	<!-- 数据库的存储过程 -->
+	<bean id="studentStoredDAO" class="cn.jz.helloWorld.dao.StudentStoredDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
 	<bean id="helloWorld" class="cn.jz.helloWorld.bean.Message">
 		<property name="message" value="Hello World!" />
 	</bean>

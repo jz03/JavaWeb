@@ -14,21 +14,27 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 import cn.jz.helloWorld.bean.StudentMarks;
 import cn.jz.helloWorld.mapping.StudentMarksMapping;
 
+/**
+ * 事务操作
+ * 
+ * @author 冀州
+ * @date 2018年4月16日
+ */
 public class StudentTransactionDAO {
 	private JdbcTemplate jdbcTemplateObject;
-	private PlatformTransactionManager transactionManager;
+//	private PlatformTransactionManager transactionManager;
 
 	public void setDataSource(DataSource dataSource) {
 		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
 
 	public void setTransactionManager(PlatformTransactionManager transactionManager) {
-		this.transactionManager = transactionManager;
+//		this.transactionManager = transactionManager;
 	}
 	
 	public void create(String name, Integer age, Integer marks, Integer year) {
 		TransactionDefinition def = new DefaultTransactionDefinition();
-		TransactionStatus status = transactionManager.getTransaction(def);
+//		TransactionStatus status = transactionManager.getTransaction(def);
 		try {
 			String SQL1 = "insert into Student (name, age) values (?, ?)";
 			jdbcTemplateObject.update(SQL1, name, age);
@@ -38,10 +44,10 @@ public class StudentTransactionDAO {
 			String SQL3 = "insert into Marks(sid, marks, year) " + "values (?, ?, ?)";
 			jdbcTemplateObject.update(SQL3, sid, marks, year);
 			System.out.println("Created Name = " + name + ", Age = " + age);
-			transactionManager.commit(status);
+//			transactionManager.commit(status);
 		} catch (DataAccessException e) {
 			System.out.println("Error in creating record, rolling back");
-			transactionManager.rollback(status);
+//			transactionManager.rollback(status);
 			throw e;
 		}
 	}

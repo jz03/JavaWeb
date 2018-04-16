@@ -7,8 +7,17 @@ package cn.jz.helloWorld.bean;
  * @date 2018年4月15日
  */
 public class Student {
+	private Integer id;
 	private String name;
-	private String age;
+	private Integer age;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		System.out.println("名字：" + name);
@@ -19,12 +28,12 @@ public class Student {
 		this.name = name;
 	}
 
-	public String getAge() {
+	public Integer getAge() {
 		System.out.println("年龄：" + age);
 		return age;
 	}
 
-	public void setAge(String age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 

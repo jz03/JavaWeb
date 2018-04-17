@@ -4,8 +4,8 @@
 --------------
 windows10 + eclipse(Mars.2) + maven
 
-**  jdk：1.7.0
-**  tomcat7
+*  jdk：1.7.0 + tomcat7
+
 * Spring:4.1.6.RELEASE
 * log4j:1.2.17
 * aspectj:1.8.6

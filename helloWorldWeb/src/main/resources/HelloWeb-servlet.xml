@@ -12,12 +12,23 @@
 
 	<context:component-scan base-package="cn.jz" />
 
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="cn.jz.exception.SpringException">
+					ExceptionPage
+				</prop>
+			</props>
+		</property>
+		<property name="defaultErrorView" value="error" />
+	</bean>
+
+	<!-- 静态资源加载 -->
 	<mvc:resources mapping="/pages/**" location="/WEB-INF/pages/" />
 	<mvc:annotation-driven/>
 </beans>

@@ -11,9 +11,9 @@ public class WebController {
 		return "redirect:finalPage";
 	}
 
-	@RequestMapping(value = "/redirect", method = RequestMethod.GET)
+	@RequestMapping(value = "/staticPage", method = RequestMethod.GET)
 	public String redirect() {
-		return "redirect:finalPage";
+		return "redirect:/pages/final.html";
 	}
 
 	@RequestMapping(value = "/finalPage", method = RequestMethod.GET)

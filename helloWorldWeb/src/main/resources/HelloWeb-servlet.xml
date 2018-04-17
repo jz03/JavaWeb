@@ -12,17 +12,17 @@
 
 	<context:component-scan base-package="cn.jz" />
 
+	<!-- jsp页面的处理 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<!-- 错误与异常的处理 -->
 	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<props>
-				<prop key="cn.jz.exception.SpringException">
-					ExceptionPage
-				</prop>
+				<prop key="cn.jz.exception.SpringException">ExceptionPage</prop>
 			</props>
 		</property>
 		<property name="defaultErrorView" value="error" />
